@@ -2,6 +2,7 @@
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 
 class Program
 {
@@ -10,18 +11,34 @@ class Program
 
         CarManager carManager = new CarManager(new EfCarDal());
 
-        foreach (var car in carManager.GetAll())
+
+        foreach (var car in carManager.GetProductDetails())
         {
-            Console.WriteLine(car.Description);
+            Console.WriteLine(car.BrandName);
+
+        }
+
+
+
+   
+        
+
+
+
+        //CarManager carManager = new CarManager(new EfCarDal());
+
+        //foreach (var car in carManager.GetAll())
+        //{
+        //    Console.WriteLine(car.Description);
       
-        }
+        //}
 
-        Console.WriteLine("*******************************");
+        //Console.WriteLine("*******************************");
 
-        foreach (var car in carManager.GetAllByCategory(1))
-        {
-            Console.WriteLine(car.Description);
-        }
+        //foreach (var car in carManager.GetAllByCategory(1))
+        //{
+        //    Console.WriteLine(car.Description);
+        //}
 
 
 
