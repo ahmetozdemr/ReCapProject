@@ -11,11 +11,15 @@ class Program
 
         CarManager carManager = new CarManager(new EfCarDal());
 
+        var result = carManager.GetProductDetails();
 
-        foreach (var car in carManager.GetProductDetails())
+        if(result.Success == true) 
         {
-            Console.WriteLine(car.BrandName);
+            foreach (var car in result.Data)
+            {
+                Console.WriteLine(car.BrandName + "/" + car.CarId);
 
+            }
         }
 
 
